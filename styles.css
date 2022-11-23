@@ -58,7 +58,10 @@ body {
     height: auto;
     background-color: hsl(0, 0%, 96%);
     border-radius: 10px;
-    text-align: center;
+}
+#inputs h1, #results h1 {
+  text-align: center;
+
 }
 #inputs form  {
     display: flex;
