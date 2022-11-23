@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Economic Scheduling without Transmission Losses</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600;700&family=Redressed&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="header">Economic Scheduling</div>
+    <div id="inputs">
+      <h1>Inputs</h1>
+      <br />
+      <hr />
+      <br />
+      <form id="form">
+        <label for="n">Enter the number of generators (M)</label>
+        <input type="text" id="n" name="n" />
+      </form>
+      <br />
+      <hr />
+      <br />
+      <form class="form1">
+        <label for="pd">Enter the power demand (D)</label>
+        <input type="text" id="pd" name="pd" />
+      </form>
+      <button>Submit</button>
+    </div>
+    <div id="results">
+      <h1>Results</h1>
+      <br />
+      <hr />
+      <br />
+    </div>
+    <script src="./index.js"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </body>
+</html>

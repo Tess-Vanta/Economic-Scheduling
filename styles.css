@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+body {
+   
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+     background-color: rgb(255, 255, 255);
+     font-family: 'Poppins', sans-serif;
+     font-size: 1rem;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+   
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ffe100; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(255, 149, 0); 
+  }
+#header {
+    height: 15vh;
+    background-color: #ffcc00;
+   width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+
+    font-weight: 600;
+    font-size: 2rem;
+    color: white;
+}
+
+#inputs, #results {
+   margin: 3rem 0;
+    padding: 1rem;
+    width: 80%;
+    height: auto;
+    background-color: hsl(0, 0%, 96%);
+    border-radius: 10px;
+    text-align: center;
+}
+#inputs form  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+#inputs button{
+  display: block;
+  padding:10px 20px;
+  border-radius: 20px;
+  border:transparent;
+  background-color: #ffcc00;
+  color:white;
+  font-family: 'Poppins';
+  margin: 0px auto;
+}
+#inputs button:hover{
+  transform:scale(1.06);
+  transition: 0.2s;
+  background-color: rgb(255, 149, 0);
+}
+#n, #pd {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom:  solid 1px rgb(219, 218, 218);
+    padding: 1rem;
+    padding-bottom: 0.5rem;
+    background-color: transparent;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+
+#inputs form input:focus {
+    background-color: transparent;
+}
+
+.cost-fn {
+    margin: 1rem 0;
+}
+
+.inline {
+    width: 4rem ;
+    height: 2rem;
+    outline: none;
+    border: none;
+    border:  solid 1px rgb(219, 218, 218);
+  text-align: center;
+  border-radius: 5px;
+
+}
+
