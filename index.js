@@ -199,9 +199,9 @@ button.addEventListener("click", () => {
   costs.innerHTML +=
     "<p class='linela'> \\(C_{" +
     n +
-    "} = " +
+    "} = Rs" +
     Math.round((cost + Number.EPSILON) * 100) / 100 +
-    " Rs\\) </p>";
+    " \\) </p>";
   setTimeout(function () {
     MathJax.typeset();
     syncTypeset.appendChild(done.cloneNode(true));
