@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
           i +
           "}^{2}\\) </p>";
         form.innerHTML +=
-          "<p clas='cost-fn'> <input type='text' id='pmin" +
+          "<p class='cost-fn'> <input type='text' id='pmin" +
           i +
           "' class='inline ' /></span> \\( \\le P_{" +
           i +
@@ -50,11 +50,11 @@ button.addEventListener("click", () => {
   var Pmin = [];
   var Pmax = [];
   for (let i = 1; i <= n; i++) {
-    let curr = parseInt(document.querySelector("#alpha" + i).value);
+    let curr = parseFloat(document.querySelector("#alpha" + i).value);
     alpha.push(curr);
   }
   for (let i = 1; i <= n; i++) {
-    let curr = parseInt(document.querySelector("#beta" + i).value);
+    let curr = parseFloat(document.querySelector("#beta" + i).value);
     beta.push(curr);
   }
   for (let i = 1; i <= n; i++) {
@@ -62,11 +62,11 @@ button.addEventListener("click", () => {
     gamma.push(curr);
   }
   for (let i = 1; i <= n; i++) {
-    let curr = parseInt(document.querySelector("#pmin" + i).value);
+    let curr = parseFloat(document.querySelector("#pmin" + i).value);
     Pmin.push(curr);
   }
   for (let i = 1; i <= n; i++) {
-    let curr = parseInt(document.querySelector("#pmax" + i).value);
+    let curr = parseFloat(document.querySelector("#pmax" + i).value);
     Pmax.push(curr);
   }
   console.log(alpha);
@@ -119,7 +119,9 @@ button.addEventListener("click", () => {
 
   var given = document.querySelector(".given");
   given.innerHTML = "";
-  given.innerHTML += "<p>Given,</p>";
+  given.innerHTML += "<p>Number of generators,</p>";
+  given.innerHTML += "<p class='cost-fn'> \\(M = " + n + "\\) </p>";
+  given.innerHTML += "<p>Cost characteristics,</p>";
   for (let i = 1; i <= n; i++) {
     given.innerHTML +=
       "<p class='cost-fn' > \\(C_{" +
@@ -135,8 +137,71 @@ button.addEventListener("click", () => {
       gamma[i - 1] +
       "\\) \\(P_{" +
       i +
-      "}^{2}\\) </p>";
+      "}^{2} Rs/h\\) </p>";
   }
+  given.innerHTML += "<p>Generating limits,</p>";
+  for (let i = 1; i <= n; i++) {
+    given.innerHTML +=
+      "<p class='cost-fn'> \\(" +
+      Pmin[i - 1] +
+      " MW\\) \\( \\le P_{" +
+      i +
+      "} \\le \\) \\(" +
+      Pmax[i - 1] +
+      " MW\\)  </p>";
+  }
+  given.innerHTML += "<p>Power demand,</p>";
+  given.innerHTML += "<p class='cost-fn'> \\(D = " + PD + "  MW\\) </p>";
+  given.innerHTML += "<br/>";
+  given.innerHTML += "<hr/>";
+  given.innerHTML += "<br/>";
+  given.innerHTML += "<p>Incremental cost,</p>";
+  for (let i = 1; i <= n; i++) {
+    given.innerHTML +=
+      "<p class='cost-fn' > \\( \\frac{dC_{" +
+      i +
+      "}}{dP_{" +
+      i +
+      "}} = " +
+      beta[i - 1] +
+      " + " +
+      gamma[i - 1] * 2 +
+      "P_{" +
+      i +
+      "} Rs/MWh \\)  </p>";
+  }
+  console.log(P);
+  given.innerHTML += "<p>Lagrange Multiplier,</p>";
+  given.innerHTML +=
+    "<p class='cost-fn bigger'>$$ \\lambda = \\frac{D - \\Sigma_{i=1}^{n}\\frac{\\beta_{i}}{2\\gamma_{i}} }{\\Sigma_{i=1}^{n}\\frac{1}{2\\gamma_{i}}} $$ $$ = " +
+    Math.round((lmda + Number.EPSILON) * 100) / 100 +
+    "$$</p>";
+  given.innerHTML += "Power allocated,";
+  for (let i = 1; i <= n; i++) {
+    given.innerHTML +=
+      "<p class='cost-fn'>\\( P_{" +
+      i +
+      "} = \\frac{\\lambda - \\beta_{" +
+      i +
+      "}}{2\\gamma_{" +
+      i +
+      "}} = " +
+      Math.round((P[i - 1] + Number.EPSILON) * 100) / 100 +
+      " MW\\)</p>";
+  }
+  given.innerHTML += "Total cost of generation,<br/>";
+  given.innerHTML += "<p class='costs' ></p>";
+  var costs = document.querySelector(".costs");
+  costs.innerHTML += "<p class='linela'> \\(C_{T} = \\)</p>";
+  for (let i = 1; i < n; i++) {
+    costs.innerHTML += "<p class='linela'> \\(C_{" + i + "} + \\)</p>";
+  }
+  costs.innerHTML +=
+    "<p class='linela'> \\(C_{" +
+    n +
+    "} = " +
+    Math.round((cost + Number.EPSILON) * 100) / 100 +
+    " Rs\\) </p>";
   setTimeout(function () {
     MathJax.typeset();
     syncTypeset.appendChild(done.cloneNode(true));

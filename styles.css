@@ -59,6 +59,7 @@ body {
     background-color: hsl(0, 0%, 96%);
     border-radius: 10px;
 }
+
 #inputs h1, #results h1 {
   text-align: center;
 
@@ -104,7 +105,8 @@ body {
 }
 
 .cost-fn {
-    margin: 1rem 0;
+    margin: 1rem auto;
+    text-align: center;
 }
 
 .inline {
@@ -118,3 +120,29 @@ body {
 
 }
 
+.linela {
+  display: inline;
+}
+
+.costs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer {
+  height: 15vh;
+  background-color: #ffcc00;
+ width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem;
+  color: white;
+  font-weight: 600;
+}
+
+#footer p:hover {
+  color: rgb(255, 149, 0);
+  cursor: pointer;
+}
